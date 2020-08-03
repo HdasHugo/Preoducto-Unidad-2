@@ -326,6 +326,33 @@ Como podemos observar en cada tabla de verdad tenemos como “variables de entra
 
 ![Ap 8](https://user-images.githubusercontent.com/68835261/89187648-2e179f00-d563-11ea-8ba0-e8283ebcc5ab.JPG)
 
+![Ap 9](https://user-images.githubusercontent.com/68835261/89187698-3e2f7e80-d563-11ea-9dff-9df6357bd960.JPG)
+
+![Ap 10](https://user-images.githubusercontent.com/68835261/89187710-412a6f00-d563-11ea-92f5-b1a9db63e770.JPG)
+
+![Ap 11](https://user-images.githubusercontent.com/68835261/89187720-438cc900-d563-11ea-85f4-e90e193ee30a.JPG)
+
+![Ap 12](https://user-images.githubusercontent.com/68835261/89187728-45ef2300-d563-11ea-9c13-1c332ff4beed.JPG)
+
+![Ap 13](https://user-images.githubusercontent.com/68835261/89187735-4982aa00-d563-11ea-9bd9-fc8ba8b9f624.JPG)
+
+Como sabemos el valor lógico de la salida de F3 debe estar conectada en las entradas A y B del decodificador (del display de decenas), peros si realizamos esto directamente, se alteraría al resultado visualizado en el display debido a que las salidas de F1 y F2 no serían reconocidas por dichos puertos del decodificador, entonces es por ello que se necesita de compuertas OR para “compartir” las salidas de F1 y F2, de esta manera si F3 es igual a 1 lógico, entonces, las entradas A y B del decodificador también estarán en un estado lógico alto, dando así el resultado de 3 en el display de 7 segmentos. (figura 3.6).
+
+![Ap 14](https://user-images.githubusercontent.com/68835261/89187752-4daec780-d563-11ea-8aba-285a0e0eb310.JPG)
+
+![Ap 15](https://user-images.githubusercontent.com/68835261/89187760-51424e80-d563-11ea-84fa-4592472c2348.JPG)
+
+### 2. Display de unidades
+Para mostrar el valor resultante en el display de las unidades se sigue el mismo procedimiento que en el caso de la visualización de los números de entrada A y B, solo que para este apartado requeriremos de la utilización de dos circuitos sumadores.
+
+![Ap 16](https://user-images.githubusercontent.com/68835261/89187769-569f9900-d563-11ea-8e0c-cf3c07631b52.JPG)
+
+El procedimiento es el siguientet:
+
+### -	Para decena = 1
+Supongamos que la suma entre A y B = 1 0000 (16 en decimal), entonces los sumadores hacen las siguientes operaciones:
+
+![Ap 17](https://user-images.githubusercontent.com/68835261/89187788-5b644d00-d563-11ea-915f-d9eca44313c7.JPG)
 # Data Sheet de los elementos Utilizados  
 
 
