@@ -278,6 +278,17 @@ Este proceso se realizará hasta terminar con el número binario de 8 bits.
 
 Claramente, lo que se hace es comparar dos cifras y en el caso de que la primera cifra sea mayor que 4, se debe sumar el valor de 3, entonces aplicando esto en el diseño a realizar, necesitamos de comparadores y sumadores, con CIs 7485 y 74283, respectivamente.
 
+![DIS1](https://user-images.githubusercontent.com/68835261/89205021-a9397f00-d57c-11ea-92fc-9768af798913.JPG)
+
+Como podemos observar en el primer comparador, comenzamos con los bits más significativos, incluyendo al bit de acarreo calculado ya con anterioridad, a esta cifra la comparamos con 4 y si el resultado es mayor se le suma 3 a la misma cifra con los bits mencionados, obteniendo así, un primer resultado, los cuales equivalen a los bits más significativos del siguiente comparador y en el bit menos significativo se coloca el siguiente bit obtenido del resultado obtenido (Y4), se realiza el mismo procedimiento hasta terminar con todos los bits de nuestro resultado. A continuación, se ilustra el proceso completo
+
+![DIS2](https://user-images.githubusercontent.com/68835261/89205029-accd0600-d57c-11ea-8152-53a38ef6ad79.JPG)
+
+Una vez obtenidos nuestros resultados en BCD conectamos sus salidas a cada decodificador 4511 y posterior a ello su conexión a los displays de 7 segmentos.
+
+![DIS3](https://user-images.githubusercontent.com/68835261/89205039-b0608d00-d57c-11ea-8b05-39ef0864f56e.JPG)
+
+Cabe recalcar que el bit menos significativo obtenido en binario (Y0) se coloca en el pin A de nuestro primer decodificador (display de unidades), ya que este valor siempre va a cambiar de 0 a 1 y viceversa en cada uno de los casos periódicamente. 
 
 ## 9.- DESCRIPCIÓN DE PRERREQUISITOS Y CONFIGURACIÓN
 En lo que corresponde a la utilización de programas secundarios para que el circuito funcione correctamente, podemos decir que no se ha necesitado de ninguna que influya directamente, ya que Tinkercad y Proteus ofrecen entornos de simulación muy intuitivos para realizar los respectivos diseños e implementaciones. 
