@@ -135,7 +135,7 @@ Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segme
  
 # 7485
 
- ![7485](https://user-images.githubusercontent.com/66962449/89147932-ddca1e00-d51d-11ea-87d5-c332cae5f6fa.png)
+![7485](https://user-images.githubusercontent.com/66962449/89147932-ddca1e00-d51d-11ea-87d5-c332cae5f6fa.png)
  
 # 4511
 
