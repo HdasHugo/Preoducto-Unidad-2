@@ -373,8 +373,7 @@ El Resultado final va conectado al decodificador y por ende se visualizaría el 
 ###  -	Representación del resultado en BCD con display de 7 segmentos
 Para representar mediante displays de 7 segmentos el resultado de forma que se lea en formato BCD, necesitamos realizar la conexión de las 4 cifras menos significativas a un decodificador 4511, cuyas salidas se conectan al primer display. Para representar las 4 cifras más significativas se procede a realizar el mismo procedimiento, obteniendo así su representación en el segundo display. Cabe mencionar que si obtenemos un número mayor a 9 en los 4 bits de salida, ya sean más o menos significativos, el display no se encenderá.A continuación, se ilustra su funcionamiento:
 
-
-
+![Ap 20](https://user-images.githubusercontent.com/68835261/89196426-cddb2a00-d56f-11ea-9455-6633ccda885a.JPG)
 
 ## 11.- CONCLUSIONES
 -	La implementación del circuito sobre la operatividad de un sistema selector de operaciones aritméticas de suma o resta, se lo ha realizado de tal manera que los datos de entrada, correspondientes a la variable de control (Switch selector) y a los números A y B en cuestión, se relacionen con los datos de salida entre sí por medio de un circuito combinacional que realiza la multiplexación de dos operaciones a realizar, proceso que se estableció en el cálculo de la suma o resta binaria, a través de circuitos lógicos aritméticos, cuyo circuito integrado es el 74283 y compuertas lógicas, tales como AND, OR, NOT y XOR, entonces, dependiendo del estado lógico en el que se encuentre la entrada selectora, obtuvimos el resultado en binario y en decimal, utilizando los decodificadores BCD 4511 y el display de 7 segmentos de cátodo común para este último caso.
