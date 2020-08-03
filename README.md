@@ -139,7 +139,7 @@ Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segme
 ### 5.3. DIAGRAMA ELÉCTRICO
 
 ## 6.- LIST  DE COMPONENTES
-
+![Tabla 1 11](https://user-images.githubusercontent.com/68835261/89187069-5652ce00-d562-11ea-8194-fabb8efa6386.JPG)
 # Data Sheet de los elementos Utilizados 
 
 # 74283
