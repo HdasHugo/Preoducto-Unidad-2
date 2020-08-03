@@ -431,7 +431,7 @@ podemos darnos cuenta de la gran cantidad de aplicaciones que tienen y que de ci
 
 # Cronograma 
 
-
+![Cronograma](https://user-images.githubusercontent.com/66962449/89209222-7ba40400-d583-11ea-9745-0b108f1c10d0.png)
 
 # Bibliografia:
 ## [1] Privalov y K. Sohraby «Sci-Hub IEEEXplore» abril de 1998	
