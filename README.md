@@ -29,17 +29,6 @@ Los MUXs pueden ser:
 Circuitos digitales hechos con puertas lógicas de alta velocidad para cambiar datos digitales o binarios.
 Circuitos analógicos usando transistores, MOSFETs o relés para conmutar una de las entradas de voltaje o corriente en una sola salida.
 
-# Su Funcionamiento
-
-El principio de funcionamiento de un multiplexor se puede entender de manera muy sencilla a través de un ejemplo.
-Vamos a emplear una serie de tuberías controladas por una llave de paso como en la siguiente imagen:
- 
-Como podemos ver en el primer ejemplo tenemos:
-•	Dos tuberías de entrada con dos tipos de agua según su uso.
-•	Una llave de paso con la que se elegirá el tipo de agua en cada momento.
-•	Una tubería de salida que es común a todas las de entrada y por la que circulará el agua que esté «seleccionada» por la llave de paso.
- 
-Este último ejemplo es igual que el primero, a excepción de que existen cuatro tuberías de entrada en vez de dos.
 
 # Multiplexores digitales
 
