@@ -133,14 +133,54 @@ Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segme
 
 ## 5.- DIAGRAMAS
 ### 5.1. DIAGRAMA DE BLOQUES
-
+![Diagrama 1 1](https://user-images.githubusercontent.com/68835261/89188009-ada56e00-d563-11ea-986e-711e420b10e3.JPG)
 ### 5.2. DIAGRAMA UML (CASO DE USO – CLASE)
-
+![Diagrama 1 2](https://user-images.githubusercontent.com/68835261/89188012-b007c800-d563-11ea-88c4-e7f977330a8a.JPG)
 ### 5.3. DIAGRAMA ELÉCTRICO
 
 ## 6.- LIST  DE COMPONENTES
 ![Tabla 1 11](https://user-images.githubusercontent.com/68835261/89187069-5652ce00-d562-11ea-8194-fabb8efa6386.JPG)
-# Data Sheet de los elementos Utilizados 
+![Tabla 1 12](https://user-images.githubusercontent.com/68835261/89187081-5a7eeb80-d562-11ea-8b14-4d60f3c7b30d.JPG)
+
+## 7.- MAPARA DE VARIABLES
+•	Variables utilizadas para el funcionamiento del circuito (Operaciones aritméticas seleccionadas mediante multiplexor)
+- Entradas
+![Figura 1 1](https://user-images.githubusercontent.com/68835261/89186923-1be93100-d562-11ea-8058-57d9ae58577f.JPG)
+
+- Salidas
+![Figura 1 2](https://user-images.githubusercontent.com/68835261/89186955-2acfe380-d562-11ea-8b72-63ba1f7c03c1.JPG)
+
+La figura 1.1 y 1.2 nos ilustra de manera detallada todas las variables que han sido utilizadas para la implementación y el correcto funcionamiento del circuito (Operaciones aritméticas. Suma o resta) seleccionadas mediante un multiplexor. 
+
+En la figura 1.1 podemos observar las variables de entrada, las cuales corresponden al switch (1 | 0) y los dos dipswitch (Números A y B). Necesarios para realizar el control o selección de la operación aritmética a realizar y el ingreso de los valores en binario de A y B respectivamente.
+
+La figura 1.2 ilustra las variables de salida (Y0, Y1, Y2, Y3, Y4, Y5, Y6, Y7) que se han utilizado para indicar el número binario resultante de la operación aritmética que se haya escogido realizar representadas por LEDs y también la variable (AC | SIGNO) que representa al bit de acarreo (suma) o el signo negativo (resta).
+
+•	Interfaz de usuario
+![Figura 1 3](https://user-images.githubusercontent.com/68835261/89186967-2f949780-d562-11ea-82b0-307a9a8ab5a2.JPG)
+![Figura 1 4](https://user-images.githubusercontent.com/68835261/89186974-33c0b500-d562-11ea-9f1a-7c0c63e0a19b.JPG)
+
+•	Tabla de variables visibles o no visibles
+![Tabla 1 2](https://user-images.githubusercontent.com/68835261/89187050-4f2bc000-d562-11ea-9181-ce3f56fc2c87.JPG)
+Donde:
+-  A7  Y B7 son los bits más significativos y A0 Y B0 los bits menos significativos
+- Y7 es el bit más significativo y Y0 el menos significativo. 
+A continuación, se presenta una tabla resumen de cada variable que se ha utilizado, el tipo y la función que realiza cada una en el circuito. Esto se ilustra en la tabla 1.3.
+![Tabla 1 3](https://user-images.githubusercontent.com/68835261/89187125-72ef0600-d562-11ea-8e20-54ab7c41e647.JPG)
+
+## 8.- EXPLICACIÓN DEL CIRCUITO
+
+### OPERACIONES ARITMÉTICAS SELECCIONADAS MEDIANTE UN MULTIPLEXOR
+El diseño del presente circuito, se basa en seleccionar, mediante un multiplexor con 1 variable de control, las operaciones correspondientes a la suma o resta de dos números binarios de 8 bits, cuyos resultados se presentarán en formato decimal en displays de 7 segmentos. Es decir:
+
+![Tabla 1 4](https://user-images.githubusercontent.com/68835261/89187153-7d110480-d562-11ea-9473-09723bfd6deb.JPG)
+•	CIRCUITO SUMADOR RESTADOR
+El circuito sumador restador, consta principalmente de cuatro circuitos integrados (sumadores) 74HC283, los cuales son necesarios para realizar la operación suma o resta de dos números binarios de 8 bits.
+
+Como primer punto tenemos la variable de control, la cuales determinarán la operación que se llevará a cabo. En este caso en particular, tenemos que para realizar la suma debe ejecutarse la acción (0) y para el caso de la resta (1). (Figura 1.5)
+
+![Figura 1 5](https://user-images.githubusercontent.com/68835261/89186987-38856900-d562-11ea-97c6-c416253b1ac7.JPG)
+# Data Sheet de los elementos Utilizados  
 
 # 74283
 
