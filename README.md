@@ -1,23 +1,24 @@
 # Producto-Unidad-2
-#Planteamieno del Problema
+# 1.-Planteamieno del Problema 
 Realiza en un circuito una calculadora básica que me permita sumar y restar dos números de 8 bits, este trabajo debe ser implementando en la plataforma de tinkercad demás de eso implementar el integrado 7483 que es un sumador de 4 bits, en la salida que se presente de esta y para que podamos decidir si queremos que nos de la operación de suma o la operación de resta se realizara a través de un multiplexor , esta salida se debe presentar a través de uno o varios display de 7 segmentos para el cual usaremos el integrado de 4511 y por ultimo las entradas se presentaran por medio de un dip switch.
-#Objetivos
-##Objetivo general:
+# 2.-Objetivos
+## 2.1-Objetivo general:
 -	Realizar un circuito sumador-restador de 8 bits en el que se implemente en la salida un multiplexor de integrado 4511 y por esta definir si el resultado es de operación de suma o de resta
-##Objetivos específicos
+## 2.2.-Objetivos específicos
 -	A través de la página de tinkercad implementar el circuito para una mejor  visualización de los integrados y una simulación más realista a lo que haríamos dentro de un laboratorio
 -	Usar uso del multiplexor al final del circuito para definir cuál es la salida y de ser el caso de la resta mostrar a través si es un número negativo mostrar el cambio
 -	Mostrar el resultado a través del display de 7 segmentos BCD  en 3 display y este resultado debe ser hasta 510
-Conflux: un multiplexor asíncrono de dos a uno para multiplexación por división de tiempo y lectura sin reloj y sin token
+# 3.-Estado del Arte
+# Conflux: un multiplexor asíncrono de dos a uno para multiplexación por división de tiempo y lectura sin reloj y sin token
 En este artículo se describe un multiplexor de dos a uno asíncrono independiente y auto arbitraje llamado Conflux. Conflux se puede utilizar para implementar multiplexación por división de tiempo sin reloj y sin token entre dos fuentes. Esta capacidad se puede usar para crear un bus de datos agregados sin reloj y sin token que se puede usar como una arquitectura de lectura asincrónica completa para un chip, una parte de un chip o un sistema multichip completo. Conflux utiliza un clásico apretón de manos asíncrono de cuatro fases en sus dos puertos de entrada, así como en su puerto de salida. La solicitud asincrónica se incluye con datos para garantizar un retraso de propagación constante. La solicitud también se implementa como una señal diferencial para tener en cuenta las diferencias de retardo de propagación entre los lógicos y los ceros. El arbitraje entre las dos corrientes de entrada de Conflux se logra mediante tres pestillos de restablecimiento y ajuste. Finalmente, las células Conflux se usaron con éxito para implementar la arquitectura de lectura del chip prototipo FCP130. Las pruebas indican retrasos únicos en la etapa de Conflux de 1.8 ns y un ancho de banda de aproximadamente 11 Gb / s en CMOS de 130 nm. 
 En este artículo podemos ver otra aplicación o uso de un multiplexor y como este nos facilita algunos trabajos y nos ayuda hacer el uso de menos herramientas como en este que no hace uso de un reloj ni token 
-Análisis de fluctuación por flujo en multiplexores ATM CBR
+# Análisis de fluctuación por flujo en multiplexores ATM CBR
 En este artículo se nos informa primero sobre cómo es la espera que el tráfico de velocidad de bits constante (CBR) sea una fuente importante de tráfico en redes de alta velocidad. Dichas fuentes pueden tener requisitos estrictos de demora y pérdida y, en muchos casos, deben entregarse exactamente como se generaron. Un esquema de prioridad de retardo simple limitará el retardo de la celda y la fluctuación de fase para las secuencias CBR, de modo que en los conmutadores de red el tráfico CBR solo competirá con otro tráfico CBR en las redes. En este documento consideramos un multiplexor en dicho entorno. Proporcionamos un análisis exacto del proceso de fluctuación de fase en el caso homogéneo. En este caso obtenemos la caracterización completa del proceso de fluctuación que muestra las imprecisiones de los resultados existentes. Estos  resultados indican que la variación de la fluctuación de fase está limitada y nunca excede la ranura constante de 2/3. También se muestra que los tiempos sucesivos de interdeparación de células por flujo se correlacionan negativamente con la correlación de retraso 1 de -1/2. Los coeficientes de correlación de orden superior se muestran como cero. También se proporcionan resultados asintóticos simples sobre el comportamiento por flujo cuando el número de flujos CBR se considera grande. En el caso heterogéneo, limitamos la distribución y los momentos de fluctuación. Se proporcionan resultados simples para el cálculo del límite en la variación de la fluctuación de fase para cualquier combinación de flujos CBR en este caso. 
-Multiplexor de longitud de onda de rejilla Chirped Echelle perfecto: diseño y optimización
+# Multiplexor de longitud de onda de rejilla Chirped Echelle perfecto: diseño y optimización
 Se presenta un nuevo método para diseñar una rejilla de difracción para multiplexación por división de longitud de onda (WDM), que se sintoniza en un único punto estigmático. La nueva rejilla se define por el modo y la longitud de onda de la operación en una guía de onda de losa, la posición de las guías de onda, el orden de difracción y una ruta arbitraria, que se llama la línea de rejilla, sobre la cual se posicionan, se proyectan las facetas individuales. curvado a través del algoritmo esbozado. Se presenta un proceso de diseño sistemático para las rejillas de echelle (EG), que cubre todos los aspectos clave de este dispositivo. Se describe una serie de reglas para mejorar el rendimiento de cualquier dispositivo EG WDM. Se realizó una comparación simulada entre este dispositivo, una rejilla estándar de Rowland y una rejilla de dos puntos estigmáticos, con el nuevo diseño funcionando mejor y comparable en cada caso, respectivamente.
 
-Marco Teorico
-Multiplexor
+# 4.-Marco Teorico
+#										Multiplexor
 El multiplexor, también conocido de manera acortada como MUX, es un circuito lógico combinacional diseñado para conmutar una o varias líneas de entrada en una sola línea de salida común mediante la aplicación de una lógica de control.
 Los multiplexores funcionan como conmutadores de acción muy rápida que gestionan varias líneas de entrada llamadas canales y conectan una de estas entradas a la línea de salida en función de la señal de control.
 Los MUXs pueden ser:
