@@ -131,6 +131,15 @@ Lamp Test LT(Pin 3): Este pin nos sirve para probar todos los segmentos. Debido 
 Blank Input BI(Pin 4): Apaga todos los segmentos, tenér en cuenta que esto es una entrada inversora, por lo tanto para tener un funcionamiento normal del CI esta entrada precisa estar en 1.
 Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segmentos después de recibir un 1 lógico. Para obtener un funcionamiento normal del CD4511 esta entrada precisa estar en 0.
 
+## 5.- DIAGRAMAS
+### 5.1. DIAGRAMA DE BLOQUES
+
+### 5.2. DIAGRAMA UML (CASO DE USO – CLASE)
+
+### 5.3. DIAGRAMA ELÉCTRICO
+
+## 6.- LIST  DE COMPONENTES
+
 # Data Sheet de los elementos Utilizados 
 
 # 74283
