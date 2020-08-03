@@ -271,7 +271,60 @@ En lo que corresponde a la utilización de programas secundarios para que el cir
 
 Ahora bien, necesitamos saber cuales son los pasos para poder implementar un circuito en Tinkercad. Para lo cual, debemos:
 
-1. Seleccionar en la sección de componentes, todos los elementos que se utilizarán en el circuito, (Circuitos integrados, resistencias, leds) que incorpora Tinkercad
+1.	Seleccionar en la sección de componentes, todos los elementos que se utilizarán en el circuito, (Circuitos integrados, resistencias, leds) que incorpora Tinkercad
+![DP1](https://user-images.githubusercontent.com/68835261/89191407-7eddc680-d568-11ea-849c-936bf4e2665e.JPG)
+
+2.	Conectar todos los componentes electrónicos de entrada y salida en los pines digitales del Arduino, se recomienda utilizar un protoboard para mayor facilidad al momento de realizar las conexiones.
+![DP2](https://user-images.githubusercontent.com/68835261/89191418-82714d80-d568-11ea-9dae-9182580c5c2a.JPG)
+
+3.	Una vez que ya se ha realizado la implementación (ilustrada en la sección 8. Explicación del circuito) procedemos a dar clic en “Iniciar simulación” y verificar que el circuito funcione correctamente (Sección 9. Aportaciones)
+![DP3](https://user-images.githubusercontent.com/68835261/89191431-87ce9800-d568-11ea-8bae-c22d2359241d.JPG)
+
+Por otro lado, para el correcto funcionamiento del circuito, hay que tener en cuenta varios puntos específicos. Los cuales son indispensables para no tener ningún inconveniente al momento de ejecutar el circuito. 
+-	La operación SUMA solamente funciona cuando la variable de control o selectora (switch 1) se encuentre en estado lógico “BAJO”.
+-	La operación RESTA solamente funciona cuando la variable de control (Switch 1) se encuentre en estado lógico “ALTO”.
+-	Los bits menos significativos de cada número de 8 bits que vaya a ser ingresado corresponden a los switchs de la derecha y los más significativos corresponden a los switchs de la izquierda.
+
+Nota: Para implementar circuitos de este tipo en Tinkercad, se requiere de la familiarización con la fundamentación acerca de circuitos lógicos aritméticos, combinacionales y decodificadores (Principalmente sumadores y multiplexación), lo que implica también conocer sobre sus circuitos integrados y sus correspondientes diagramas de pines.
+
+## 10. APORTACIONES
+### - REPRESENTACIÓN DE LOS NÚMEROS A Y B (4 BITS MENOS SIGNIFICATIVOS)
+El procedimiento que se llevó a cabo para representar los 4 bits LSB de los números A y B en dos displays de 7 segmentos fue el siguiente:
+
+### 1.	Display de decenas
+Para este caso, necesitamos realizar una tabla de verdad, en la cual obtengamos en la salida un 1 lógico cuando el valor ingresado sea superior a 1010 (10 decimal). Luego de esto realizamos el mapa de Karnaugh y la simplificación correspondiente, tal que:
+
+![Ap 1](https://user-images.githubusercontent.com/68835261/89187597-21934680-d563-11ea-9879-4a3d053bbff2.JPG)
+
+Por lo tanto, la función lógica nos queda, tal como se observa en la sección izquierda de la figura 2.3 y su salida conectada en el bit menos significativo del decodificador (A) de la parte superior, ya que solo se necesita visualizar un 0 o 1 en el display de 7 segmentos. Las otras entradas van conectadas a tierra. 
+
+El mismo procedimiento ocurre para el número B (Figura 2.7).
+
+![Ap 2](https://user-images.githubusercontent.com/68835261/89187605-22c47380-d563-11ea-8b3a-54ada656db9c.JPG)
+
+![Ap 3](https://user-images.githubusercontent.com/68835261/89187614-248e3700-d563-11ea-93b9-880eb34e86a8.JPG)
+
+### 2. Display de unidades
+Para este caso requerimos de la utilización de un sumador 74283, el cual nos ayudará a visualizar los números del 0 al 5 en el display de las unidades cuando el número ingresado sea mayor que 10, es decir, cuando se ingresen números desde el 10 hasta el 15. La lógica de este funcionamiento es simple, pues en los 4 primeros pines del sumador se ingresan los bits ingresados por el operador. Por otro lado, los pines B0 y B3 van conectados a tierra y los pines B1 y B2 se conectan a la salida de la función lógica “F” que calculamos para el caso del display de decenas. Para entender de mejor manera, citamos un ejemplo:
+
+Supongamos que se ingresa el número A = 1111 (15 en decimal), entonces el sumador hace la siguiente operación:
+
+![Ap 4](https://user-images.githubusercontent.com/68835261/89187620-2657fa80-d563-11ea-8667-2322038e3526.JPG)
+
+De esta manera el decodificador solo recepta los 4 bits de sumatoria, es decir, S0, S1, S2, S3. Mientras que al bit de acarreo no se lo toma en cuenta (Figura 2.7). Por lo tanto, el número en el display de las decenas es 1 y en el display de las unidades es 5.
+El mismo procedimiento ocurre para el número B.
+Entonces si ingresamos el número 15 en A y B tenemos:
+![Ap 5](https://user-images.githubusercontent.com/68835261/89187624-2821be00-d563-11ea-94b1-439e92b95290.JPG)
+### - PARA LA REPRESENTACIÓN DEL NÚMERO RESULTANTE (A+B, A-B)
+
+### 1. Display de decenas
+El procedimiento es similar al de la representación de cada número (A y B), sin embargo, en este caso en particular, necesitamos que en el display de las decenas se muestre el número 1,2 o 3 debido a que la suma máxima que puede haber entre los números A y B es 30, es por ello que la máxima decena es 3. Entonces la tabla de verdad cambiaría y por consecuencia sus funciones lógicas también.
+![Ap 6](https://user-images.githubusercontent.com/68835261/89187637-2b1cae80-d563-11ea-8dc2-a2106c702e01.JPG)
+![Ap 7](https://user-images.githubusercontent.com/68835261/89187644-2c4ddb80-d563-11ea-8a76-a434bd3cc120.JPG)
+
+Como podemos observar en cada tabla de verdad tenemos como “variables de entrada” a Y4, Y3, Y2, Y1 y Y0, siendo Y4 el bit de acarreo de la operación SUMA. Y en las salidas tenemos a las funciones F2, F2 y F3 las cuales corresponden a los números decimales 1, 2 y 3, y a que a su vez son los bits que se conectarán en las entradas A y B del decodificador, realizando sus combinaciones pertinentes que a continuación presentamos.
+
+![Ap 8](https://user-images.githubusercontent.com/68835261/89187648-2e179f00-d563-11ea-8ba0-e8283ebcc5ab.JPG)
 
 # Data Sheet de los elementos Utilizados  
 
