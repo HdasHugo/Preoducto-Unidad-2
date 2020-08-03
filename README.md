@@ -143,7 +143,7 @@ Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segme
 ![Tabla 1 12](https://user-images.githubusercontent.com/68835261/89187081-5a7eeb80-d562-11ea-8b14-4d60f3c7b30d.JPG)
 
 ## 7.- MAPARA DE VARIABLES
-•	Variables utilizadas para el funcionamiento del circuito (Operaciones aritméticas seleccionadas mediante multiplexor)
+### •	Variables utilizadas para el funcionamiento del circuito (Operaciones aritméticas seleccionadas mediante multiplexor)
 - Entradas
 ![Figura 1 1](https://user-images.githubusercontent.com/68835261/89186923-1be93100-d562-11ea-8058-57d9ae58577f.JPG)
 
@@ -156,14 +156,15 @@ En la figura 1.1 podemos observar las variables de entrada, las cuales correspon
 
 La figura 1.2 ilustra las variables de salida (Y0, Y1, Y2, Y3, Y4, Y5, Y6, Y7) que se han utilizado para indicar el número binario resultante de la operación aritmética que se haya escogido realizar representadas por LEDs y también la variable (AC | SIGNO) que representa al bit de acarreo (suma) o el signo negativo (resta).
 
-•	Interfaz de usuario
+### •	Interfaz de usuario
 ![Figura 1 3](https://user-images.githubusercontent.com/68835261/89186967-2f949780-d562-11ea-82b0-307a9a8ab5a2.JPG)
 ![Figura 1 4](https://user-images.githubusercontent.com/68835261/89186974-33c0b500-d562-11ea-9f1a-7c0c63e0a19b.JPG)
 
-•	Tabla de variables visibles o no visibles
+### •	Tabla de variables visibles o no visibles
 ![Tabla 1 2](https://user-images.githubusercontent.com/68835261/89187050-4f2bc000-d562-11ea-9181-ce3f56fc2c87.JPG)
+
 Donde:
--  A7  Y B7 son los bits más significativos y A0 Y B0 los bits menos significativos
+- A7 Y B7 son los bits más significativos y A0 Y B0 los bits menos significativos
 - Y7 es el bit más significativo y Y0 el menos significativo. 
 A continuación, se presenta una tabla resumen de cada variable que se ha utilizado, el tipo y la función que realiza cada una en el circuito. Esto se ilustra en la tabla 1.3.
 ![Tabla 1 3](https://user-images.githubusercontent.com/68835261/89187125-72ef0600-d562-11ea-8e20-54ab7c41e647.JPG)
@@ -174,13 +175,107 @@ A continuación, se presenta una tabla resumen de cada variable que se ha utiliz
 El diseño del presente circuito, se basa en seleccionar, mediante un multiplexor con 1 variable de control, las operaciones correspondientes a la suma o resta de dos números binarios de 8 bits, cuyos resultados se presentarán en formato decimal en displays de 7 segmentos. Es decir:
 
 ![Tabla 1 4](https://user-images.githubusercontent.com/68835261/89187153-7d110480-d562-11ea-9473-09723bfd6deb.JPG)
-•	CIRCUITO SUMADOR RESTADOR
+
+### •	CIRCUITO SUMADOR RESTADOR
 El circuito sumador restador, consta principalmente de cuatro circuitos integrados (sumadores) 74HC283, los cuales son necesarios para realizar la operación suma o resta de dos números binarios de 8 bits.
 
 Como primer punto tenemos la variable de control, la cuales determinarán la operación que se llevará a cabo. En este caso en particular, tenemos que para realizar la suma debe ejecutarse la acción (0) y para el caso de la resta (1). (Figura 1.5)
 
 ![Figura 1 5](https://user-images.githubusercontent.com/68835261/89186987-38856900-d562-11ea-97c6-c416253b1ac7.JPG)
+
+Ahora bien, debido a que el circuito integrado 74HC283 (Sumador) necesita de un 1 ó 0 lógico en el pin correspondiente al carry de entrada (Co) para realizar la suma (0) o la resta (1) de los números binarios. Entonces procedemos a ingresar los valores ingresados de la variable de control (Figura 1.5) a dicho pin del sumador. De esta manera se realizará la suma únicamente cuando el interruptor esté en estado lógico BAJO y realizará la resta cuando se encuentre en estado lógico ALTO. El multiplexor escogerá el resultado de la operación que hayamos escogido (Figura 1.6). Esto último se explicará más adelante con más detalle.
+
+![Figura 1 6](https://user-images.githubusercontent.com/68835261/89187191-931ec500-d562-11ea-9709-f4480d8f25ea.JPG)
+
+Por otro lado, tenemos las entradas de nuestro circuito, las cuales corresponden a los dos números de 8 bits A y B. Esto se ilustra en la figura 1.7.
+
+![Figura 1 7](https://user-images.githubusercontent.com/68835261/89187224-9c0f9680-d562-11ea-8060-b947e932672b.JPG)
+
+Donde A7 y B7 son las cifras más significativas (MSB) de ambos números, mientras que A0 y B0 son las cifras menos significativas (LSB).
+
+Ahora bien, para realizar la suma o la resta de los números A y B, necesitamos realizar un cierto condicionamiento, para que funcione o la suma o la resta, dependiendo de lo que hayamos escogido, mediante el switch de la figura 1.5. Entonces para ello necesitamos de la utilización de las compuertas lógicas XOR, cuyo comportamiento lógico es necesario para, en el caso de la resta, realizar el complemento a 1 del número B. Mientras que en la suma se realizaría su operación aritmética de manera normal. Para entender de mejor manera el funcionamiento de este apartado, ilustramos la tabla de verdad de la compuerta lógica mencionada.
+
+![Tabla 1 5](https://user-images.githubusercontent.com/68835261/89187241-a3cf3b00-d562-11ea-987c-899bfcda8df6.JPG)
+
+Como podemos observar en la tabla 1.5, tenemos las salidas de 1 lógico cuando una de las dos entradas es diferente y 0 lógico cuando las dos entradas son iguales. Entonces, en base a este condicionamiento, podemos negar las cifras del número B (Complemento a 1), siempre y cuando se realice la operación aritmética resta. Para entender de mejor manera, postulamos un ejemplo.
+
+Suponiendo que tenemos el switch de suma (0) o resta (1), y un número B, tal que:
+
+Número B (en binario) = 10110001
+
+Tendríamos las siguientes tablas de verdad, para cada caso:
+
+![Tabla 1 6](https://user-images.githubusercontent.com/68835261/89187266-ab8edf80-d562-11ea-8f00-b3336bf3794d.JPG)
+
+La tabla de la izquierda ilustra lo que sucedería con el número B si realizamos la operación resta. Entonces Complemento a 1 de B = 01001110.
+Por otro lado, la tabla de la izquierda ilustra lo que sucedería con el número B si se realiza la operación suma. Es decir, el número sigue siendo el mismo.
+
+Entonces, ya implementando esta fundamentación en el circuito, tenemos:
+
+![Figura 1 8](https://user-images.githubusercontent.com/68835261/89187297-b3e71a80-d562-11ea-86da-0790bbd2c195.JPG)
+
+Cabe recalcar que la salida (1 | 0) ilustrada en la figura 1.5 será conectada hacia el pin de entrada C0 del Circuito integrado 74HC283. Y la salida C4 (bit de acarreo) será conectada en el carry de entrada del siguiente sumador, es decir, se realiza una conexión en cascada, debido a que cada número tiene 8 bits.
+
+### - Para la resta (bit que indica el signo)
+
+![Figura 1 9](https://user-images.githubusercontent.com/68835261/89187312-ba759200-d562-11ea-9887-bdab8cd6a75e.JPG)
+
+Todo lo que se ha realizado hasta el momento nos indican las operaciones, suma o resta cuyos resultados son las cifras S0(+), S1(+), S2(+), S3(+), S4(+), S5(+), S6(+), S7(+) y el bit de acarreo resultante de la suma que es C4_2. Sin embargo, nos hace falta el bit que indica el signo (para la resta). Para ello necesitamos, conectar la salida C4_2 (figura 1.9). Tal como se ilustra a continuación.
+
+![Figura 2 1](https://user-images.githubusercontent.com/68835261/89187333-c2cdcd00-d562-11ea-9920-2a762aacc0dc.JPG)
+
+Básicamente, se realizó un condicionamiento, en el cual se ha conectado la salida C4 del circuito sumador a una compuerta lógica NOT y esta salida, conectada al primer pin de la compuerta AND. Mientras que en la segunda entrada se conectó la salida del switch de la figura 1.5. Para entender mejor su funcionamiento, ilustramos el siguiente ejemplo:
+
+Sabemos que C4_2 puede tomar el valor de 1 o 0, dependiendo de la suma o resta que se realice entre los números A y B ingresados, entonces la tabla de verdad para la salida (+ | -) nos queda de la siguiente manera:
+
+![Tabla 1 7-8](https://user-images.githubusercontent.com/68835261/89187413-e133c880-d562-11ea-96e5-052d1636e5de.JPG)
+
+Como podemos observar en la operación suma (Tabla 1.8), siempre vamos a obtener en la salida un 0, lo que representa al signo positivo. Mientras que en la operación resta (Tabla 1.7) tendremos un 1 (signo negativo) solamente cuando el bit de acarreo C4 sea 0, es decir, cuando el número A sea menor que el número B.
+
+Hasta el momento sabemos que los dos primeros circuito integrado analizados se encargan de realizar la suma o resta entre los números A y B, siendo este último negado, es decir, con complemento a 1, por lo que tenemos un primer resultado. Sin embrago necesitamos de otros dos circuitos integrados (sumadores) conectados en cascada para realizar el complemento a 2 del resultado 1. Esto particularmente, para que el resultado final que obtengamos al realizar la operación resta, sea correcto. 
+
+Ahora bien, las conexiones, que necesitamos realizar en el tercer y cuarto circuito integrado, son similares a las del anterior, con algunas diferencias, que podemos notar a continuación.
+
+![Figura 2 2](https://user-images.githubusercontent.com/68835261/89187435-e7c24000-d562-11ea-833c-759548f9fd13.JPG)
+
+Supongamos que se realizó la operación resta. Y el resultado obtenido en S7(+), S6(+), S5(+), S4(+), S3(+), S2(+), S1(+), S0(+) es 11010000 respectivamente. Entonces la tabla de verdad que se obtiene a partir de la figura 2.2. es la siguiente:
+
+![Tabla 1 9 - 2 1](https://user-images.githubusercontent.com/68835261/89187450-eee94e00-d562-11ea-8268-d3dd3d399934.JPG)
+
+Como podemos observar en las Tablas 1.9 y 2.1, notamos que se realiza el complemento a 1 del resultado 1 (R1) solamente si el signo es negativo (1 lógico). Caso contrario no se realiza la negación de R1. En otras palabras, si A>B no existe complemento a 1 de R1; Por otro lado, si A<B si existe complemento a 1 de R1 (Todo esto para el caso en el que se realice la operación resta). 
+
+Entonces implementando esta fundamentación en el tercer y cuarto circuito integrado (sumadores), tenemos lo ilustrado en la figura 2.3. Cabe recalcar que el bit del signo es conectado al pin de entrada C0, mientras que las entradas B0, B1, B2, B3, B4, B5, B6, B7 son conectadas a tierra (0 lógico), ya que estos pines no serán utilizados. 
+
+![Figura 2 3](https://user-images.githubusercontent.com/68835261/89187481-f90b4c80-d562-11ea-9058-7d4c79cc4e29.JPG)
+
+A continuación, ilustramos un ejemplo para entender de mejor manera lo que realiza cada circuito integrado:
+
+![Ejemplo 1](https://user-images.githubusercontent.com/68835261/89187505-00caf100-d563-11ea-9812-07d467ba9ed5.JPG)
+
+![Ejemplo 2](https://user-images.githubusercontent.com/68835261/89187518-058fa500-d563-11ea-81ae-950b72eabf6c.JPG)
+
+Ahora bien, para realizar la selección de cada operación dependiendo del estado lógico de la variable de control (interruptor de la figura 1.5) se ha requerido de la utilización de tres circuitos integrados 74157 (Multiplexores). Tal como se muestra en la figura 2.4. 
+
+![Figura 2 4](https://user-images.githubusercontent.com/68835261/89187536-0d4f4980-d563-11ea-8fcb-0b91e2d04d69.JPG)
+
+Cada circuito integrado contiene 4 multiplexores de 2 a 1, es decir 2 entradas a 1 salida, y 1 variable de selección, por lo que, se escogerá una sola operación a realizar dependiendo del estado lógico del interruptor de la figura 1.1. Ahora bien, como podemos observar, en la figura 2.3. Cada entrada corresponde a la salida de las operaciones realizadas detalladas anteriormente. 
+Específicamente, la entrada menos significativa (XA) de cada multiplexor corresponde a las salidas de la operación SUMA. En la entrada siguiente (XB) se colocan las salidas la operación RESTA binaria, debido a que la combinación ingresada del interruptor de control estaría en (1) y de esta manera el circuito sumador restador explicada con anterioridad realizaría la sustracción de los dos números ingresados (A y B) mediante el complemento a 2 de B.
+Cabe recalcar que se utilizó un multiplexor extra para obtener el bit de acarreo (en el caso de la suma) y el bit correspondiente al signo del resultado que se obtendría si se resta un número B mayor que A. Siendo así, un total de 9 multiplexores utilizados para obtener el resultado de cada operación. De esta manera obtenemos 8 bits de salida (donde Y0 es el bit menos significativo y Y7 el más significativo) y un bit extra (signo o acarreo) que se conectan a LEDs que indican el resultado de cada operación en binario, tal como se muestra a continuación:
+
+![Figura 2 5](https://user-images.githubusercontent.com/68835261/89187556-14765780-d563-11ea-8096-f8dd72135069.JPG)
+
+Finalmente, para ilustrar el funcionamiento del circuito, en los diferentes displays de 7 segmentos (cátodo común) necesitamos utilizar decodificadores BCD (4511), para los datos de salida, entonces el circuito visualizado de manera general se vería de la siguiente manera:
+
+## 9.- DESCRIPCIÓN DE PRERREQUISITOS Y CONFIGURACIÓN
+En lo que corresponde a la utilización de programas secundarios para que el circuito funcione correctamente, podemos decir que no se ha necesitado de ninguna que influya directamente, ya que Tinkercad y Proteus ofrecen entornos de simulación muy intuitivos para realizar los respectivos diseños e implementaciones. 
+
+Ahora bien, necesitamos saber cuales son los pasos para poder implementar un circuito en Tinkercad. Para lo cual, debemos:
+
+1. Seleccionar en la sección de componentes, todos los elementos que se utilizarán en el circuito, (Circuitos integrados, resistencias, leds) que incorpora Tinkercad
+
 # Data Sheet de los elementos Utilizados  
+
+
 
 # 74283
 
