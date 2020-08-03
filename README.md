@@ -353,6 +353,28 @@ El procedimiento es el siguientet:
 Supongamos que la suma entre A y B = 1 0000 (16 en decimal), entonces los sumadores hacen las siguientes operaciones:
 
 ![Ap 17](https://user-images.githubusercontent.com/68835261/89187788-5b644d00-d563-11ea-915f-d9eca44313c7.JPG)
+
+El Resultado final va conectado al decodificador y por ende se visualizaría el número 6
+
+### -	Para decena = 2
+Supongamos que la suma entre A y B = 1 0110 (22 en decimal), entonces los sumadores hacen las siguientes operaciones:
+
+![Ap 18](https://user-images.githubusercontent.com/68835261/89187798-5dc6a700-d563-11ea-86b2-5a8ea89c67d8.JPG)
+
+El resultado final va conectado al decodificador y por ende se visualizaría el número 2
+
+### - Para decena = 3
+Supongamos que la suma entre A y B = 1 1110 (30 en decimal), entonces los sumadores hacen las siguientes operaciones:
+
+![Ap 19](https://user-images.githubusercontent.com/68835261/89187816-61f2c480-d563-11ea-9d32-7b3bc7f4fcc0.JPG)
+
+El Resultado final va conectado al decodificador y por ende se visualizaría el número 0
+
+## 11.- CONCLUSIONES
+-	La implementación del circuito sobre la operatividad de un sistema selector de operaciones aritméticas de suma o resta, se lo ha realizado de tal manera que los datos de entrada, correspondientes a la variable de control (Switch selector) y a los números A y B en cuestión, se relacionen con los datos de salida entre sí por medio de un circuito combinacional que realiza la multiplexación de dos operaciones a realizar, proceso que se estableció en el cálculo de la suma o resta binaria, a través de circuitos lógicos aritméticos, cuyo circuito integrado es el 74283 y compuertas lógicas, tales como AND, OR, NOT y XOR, entonces, dependiendo del estado lógico en el que se encuentre la entrada selectora, obtuvimos el resultado en binario y en decimal, utilizando los decodificadores BCD 4511 y el display de 7 segmentos de cátodo común para este último caso.
+-	El diseño del circuito se la realizó en base a todo lo investigado, lo cual tiene que ver con las funcionalidades que ofrecen los circuitos aritméticos y combinacionales. Cabe mencionar que esto es la base de una gran cantidad de aplicaciones en lo que respecta a sistemas digitales, ya que tienen una amplia relevancia e importancia, pues han sido implementados en procesadores para calcular índices de tablas, direcciones, etc. Sin duda los operadores aritméticos, junto con los circuitos combinacionales (en este caso multiplexores) han sido muy importantes en el avance de la electrónica y de la tecnología. Lo más esencial para nosotros es conocer cómo es su funcionamiento y mediante esta práctica se ha cumplido este objetivo. De hecho, al momento de realizar la investigación con los artículos de los autores investigados, 
+podemos darnos cuenta de la gran cantidad de aplicaciones que tienen y que de cierta manera se relaciona con nuestro proyecto en cuestión.
+
 # Data Sheet de los elementos Utilizados  
 
 
