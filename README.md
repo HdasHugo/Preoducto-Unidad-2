@@ -266,6 +266,19 @@ Cabe recalcar que se utilizó un multiplexor extra para obtener el bit de acarre
 
 Finalmente, para ilustrar el funcionamiento del circuito, en los diferentes displays de 7 segmentos (cátodo común) necesitamos utilizar decodificadores BCD (4511), para los datos de salida, entonces el circuito visualizado de manera general se vería de la siguiente manera:
 
+### •	VISUALIZACIÓN DEL RESULTADO EN DISPLAYS DE 7 SEGMENTOS
+Una vez obtenido el resultado en binario representado por los LEDs, podemos representar este valor en displays de 7 segmentos a partir de la transformación del número binario obtenido a BCD. Para ello nos basaremos en un algoritmo, el cual hace que este proceso de transformación sea posible.
+
+El algoritmo se denomina desplazar a la izquierda y suma tres, entonces:
+
+1.	Tendremos que desplazar el número binario de 8 bits, un bit hacia la izquierda.
+2.	Si alguno de los dígitos agrupados es mayor que 4, se sumará tres.
+
+Este proceso se realizará hasta terminar con el número binario de 8 bits.
+
+Claramente, lo que se hace es comparar dos cifras y en el caso de que la primera cifra sea mayor que 4, se debe sumar el valor de 3, entonces aplicando esto en el diseño a realizar, necesitamos de comparadores y sumadores, con CIs 7485 y 74283, respectivamente.
+
+
 ## 9.- DESCRIPCIÓN DE PRERREQUISITOS Y CONFIGURACIÓN
 En lo que corresponde a la utilización de programas secundarios para que el circuito funcione correctamente, podemos decir que no se ha necesitado de ninguna que influya directamente, ya que Tinkercad y Proteus ofrecen entornos de simulación muy intuitivos para realizar los respectivos diseños e implementaciones. 
 
