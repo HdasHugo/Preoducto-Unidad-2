@@ -126,7 +126,7 @@ Lath Enable LE(Pin 5): congela el último dígito exhibido en el display 7 segme
 ### 5.2. DIAGRAMA UML (CASO DE USO – CLASE)
 ![Diagrama 1 2](https://user-images.githubusercontent.com/68835261/89188012-b007c800-d563-11ea-88c4-e7f977330a8a.JPG)
 ### 5.3. DIAGRAMA ELÉCTRICO
-
+![Diagrama 1 3](https://user-images.githubusercontent.com/68835261/89324018-3566a780-d64c-11ea-96a3-52f072b711cc.JPG)
 ## 6.- LIST  DE COMPONENTES
 ![Tabla 1 11](https://user-images.githubusercontent.com/68835261/89187069-5652ce00-d562-11ea-8194-fabb8efa6386.JPG)
 ![Tabla 1 12](https://user-images.githubusercontent.com/68835261/89187081-5a7eeb80-d562-11ea-8b14-4d60f3c7b30d.JPG)
