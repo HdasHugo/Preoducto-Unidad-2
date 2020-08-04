@@ -267,20 +267,31 @@ Este proceso se realizará hasta terminar con el número binario de 8 bits.
 
 Claramente, lo que se hace es comparar dos cifras y en el caso de que la primera cifra sea mayor que 4, se debe sumar el valor de 3, entonces aplicando esto en el diseño a realizar, necesitamos de comparadores y sumadores, con CIs 7485 y 74283, respectivamente.
 
-![DIS1](https://user-images.githubusercontent.com/68835261/89205021-a9397f00-d57c-11ea-92fc-9768af798913.JPG)
+![bB1](https://user-images.githubusercontent.com/68835261/89332359-e6733f00-d658-11ea-96ef-dba74ddc94ea.JPG)
 
-Como podemos observar en el primer comparador, comenzamos con los bits más significativos, incluyendo al bit de acarreo calculado ya con anterioridad, a esta cifra la comparamos con 4 y si el resultado es mayor se le suma 3 a la misma cifra con los bits mencionados, obteniendo así, un primer resultado, los cuales equivalen a los bits más significativos del siguiente comparador y en el bit menos significativo se coloca el siguiente bit obtenido del resultado obtenido (Y4), se realiza el mismo procedimiento hasta terminar con todos los bits de nuestro resultado. A continuación, se ilustra el proceso completo
+Como podemos observar en el primer comparador, comenzamos con los bits más significativos, incluyendo al bit de acarreo, este bit de acarreo es el mismo que C4_2 (en la suma) pero necesitamos realizar un condicionamiento, debido a que si realizamos la operación resta nuestro resultado proyectado en los displays de 7 segmentos no será el correcto, entonces para calcular C out (+) necesitamos realizar una función lógica, la cual nos dé como resultado el bit de acarreo únicamente en el caso de la suma. Quedándonos dicha función de la siguiente manera:
 
-![DIS2](https://user-images.githubusercontent.com/68835261/89205029-accd0600-d57c-11ea-8152-53a38ef6ad79.JPG)
+![bB2](https://user-images.githubusercontent.com/68835261/89332379-ebd08980-d658-11ea-913d-0998197bc48d.JPG)
 
-Una vez obtenidos nuestros resultados en BCD conectamos sus salidas a cada decodificador 4511 y posterior a ello su conexión a los displays de 7 segmentos.
+Como podemos notar realizamos la combinación de las compuertas lógicas AND y NOT, esta última utilizada para complementar el estado lógico del interruptor de control, de tal manera que solo se obtenga el bit de acarreo para el caso en el que realicemos la operación SUMA.
 
-![DIS3](https://user-images.githubusercontent.com/68835261/89205039-b0608d00-d57c-11ea-8b05-39ef0864f56e.JPG)
+Ahora bien, siguiendo con la explicación de la figura 2.6.1, tenemos los últimos bits de nuestro resultado obtenido de la operación que se haya escogido en los pines menos significativos de nuestro comparador, mientras que el pin más significativo está conectado a tierra, esto se realiza debido a que, simplemente necesitamos que el número a comparar sea mayor que 4 (cumpliendo con el algoritmo) y esto ocurre si al menos el pin A2 y A0 se encuentran activos (5>4). 
+Una vez comparadas estas dos cifras, obtenemos en la salida QA>B un estado lógico alto, el cual activará los pines B0 y B1 (cuyo valor sería 3) y obviamente este valor será sumado con los mismo tres bits ingresados en el comparador. Para entender de mejor manera, ilustramos la siguiente tabla, en la cual se detalla el proceso con cada bit de nuestro número. Para ello postulamos un ejemplo, en el que el resultado es igual a 011111111.
 
-Cabe recalcar que el bit menos significativo obtenido en binario (Y0) se coloca en el pin A de nuestro primer decodificador (display de unidades), ya que este valor siempre va a cambiar de 0 a 1 y viceversa en cada uno de los casos periódicamente. 
+![bB4](https://user-images.githubusercontent.com/68835261/89332407-f723b500-d658-11ea-83bf-2e41d44f3219.JPG)
+
+Observando la tabla 2.1.1. podemos notar que nuestro análisis con el comparador y sumador implementado en nuestra simulación comienza con los tres bits más significativos, incluyendo el bit de acarreo (C out (+)) y los comparamos con 4. Si el resultado es mayor se le suma 3 a la misma cifra con los bits mencionados, obteniendo así, un primer resultado, los cuales equivalen a los bits más significativos del siguiente comparador (de esta manera se realiza el desplazamiento) y en el bit menos significativo se coloca el siguiente bit obtenido del resultado obtenido (Y5). Se realiza el mismo procedimiento hasta terminar con todos los bits de nuestro resultado. A continuación, se ilustra el proceso completo
+
+![bB5](https://user-images.githubusercontent.com/68835261/89332422-fa1ea580-d658-11ea-881c-5714078baf35.JPG)
+
+Una vez obtenidos nuestros resultados en BCD conectamos sus salidas a cada decodificador 4511 y posterior a ello su conexión a los displays de 7 segmentos, cuyo resultado se mostrará en base a los números ingresados.
+
+![bB6](https://user-images.githubusercontent.com/68835261/89332426-fdb22c80-d658-11ea-9a5f-c1febfc26068.JPG)
+
+Cabe recalcar que el bit menos significativo obtenido en binario (Y0) se coloca directamente en el pin A de nuestro primer decodificador (display de unidades), ya que este valor no va a cambiar, pues el límite máximo de desplazamientos es 9 (9 bits del resultado ilustrado en la tabla 2.1.1). 
 
 ## 9.- DESCRIPCIÓN DE PRERREQUISITOS Y CONFIGURACIÓN
-En lo que corresponde a la utilización de programas secundarios para que el circuito funcione correctamente, podemos decir que no se ha necesitado de ninguna que influya directamente, ya que Tinkercad y Proteus ofrecen entornos de simulación muy intuitivos para realizar los respectivos diseños e implementaciones. 
+En lo que corresponde a la utilización de programas secundarios para que el circuito funcione correctamente, podemos decir que se ha necesitado del software Constructor Virtual de Circuitos Digitales, ya que no es un software online e incluye más componentes, sin embargo, cabe mencionar que Tinkercad y Proteus ofrecen entornos de simulación muy intuitivos para realizar los respectivos diseños e implementaciones. 
 
 Ahora bien, necesitamos saber cuales son los pasos para poder implementar un circuito en Tinkercad. Para lo cual, debemos:
 
