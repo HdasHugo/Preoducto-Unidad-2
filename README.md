@@ -417,10 +417,28 @@ podemos darnos cuenta de la gran cantidad de aplicaciones que tienen y que de ci
 ### 14.1 MANUAL DE USUARIO
 El presente manual está diseñado para facilitar el uso del circuito que nos permite simular el funcionamiento de una calculadora básica que permite realizar la suma o la resta de dos números binarios de 8 bits, dependiendo de la posición en la que se encuentre el interruptor selector de operaciones. 
 
+1.	Interfaz de usuario (Constructor virtual de circuitos digitales
 
-# Data Sheet de los elementos Utilizados  
+Una vez haya ingresado al programa, se encontrará con el siguiente circuito, el cual contiene los números A y B y el interruptor selector de operaciones. Para la cual usted deberá ingresar el número A mediante los interruptores correspondientes, donde el interruptor situado en la parte derecha es el menos significativo y conforme vaya avanzando hacia la izquierda cada interruptor será más significativo. Lo mismo para el número B, que se encuentra al lado derecho del número A. Finalmente usted se encontrará con el bit que seleccionará la operación suma o resta (Cuando esté apagado realiza la suma y cuando esté encendido realiza la resta).
+
+![MU1](https://user-images.githubusercontent.com/68835261/89362714-33c0d200-d694-11ea-853c-0b86af07d189.JPG)
+
+2.	Ingreso de valores
+
+Para el caso de la suma usted puede ingresar cualquier valor, tal como se muestra a continuación, donde A = 10000000 y B = 00001110 y por consiguiente tendría su resultado representado en los diodos LED.
+
+![MU2](https://user-images.githubusercontent.com/68835261/89362725-37545900-d694-11ea-9fe0-d4680d2dc954.JPG)
+
+De igual manera ocurre para la operación resta. En este caso mostramos un ejemplo, de manera que A>B
+
+![MU3](https://user-images.githubusercontent.com/68835261/89362736-3d4a3a00-d694-11ea-837d-7fae10195002.JPG)
+
+Y para el caso en que A<B, tendríamos nuestro resultado junto con el signo representado por el led que se encuentra en la parte superior. (A = 10000000 y B = 10001110)
+
+![MU4](https://user-images.githubusercontent.com/68835261/89362751-42a78480-d694-11ea-91f7-1975a4b2ad22.JPG)
 
 
+### 14.2 HOJAS TÉCNICAS  
 
 # 74283
 
