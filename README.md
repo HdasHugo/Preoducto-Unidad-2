@@ -413,6 +413,10 @@ podemos darnos cuenta de la gran cantidad de aplicaciones que tienen y que de ci
 - En el caso que se desee convertir un número mayor de 4 bits a BCD. Recomendamos realizarlo mediante el algoritmo XC3, el cual dictamina que se debe realizar un desplazamiento de los bits a convertir, realizando su comparación y verificando que sea mayor o igual que 5, si esto ocurre se suma 3 al grupo de 4 bits (correspondiente al valor BCD en decimal). Pues si se lo realiza en base a la obtención de funciones lógicas, tablas de verdad y su simplificación sería un circuito extremadamente extenso, por lo cual recomendamos realizarlo dicho algoritmo.
 -	Comparar detalladamente los Datasheet de cada componente que usemos, puesto que, si no lo verificamos, los datos de salida del circuito integrado pueden ser erróneos y esto causará que el funcionamiento del circuito implementado no sea el correcto, incluso pueden ocurrir averías en los mismos, por ello es importante identificar los pines de entrada, salida y de energía, con su respectiva numeración.
 
+## 14. ANEXOS
+### 14.1 MANUAL DE USUARIO
+El presente manual está diseñado para facilitar el uso del circuito que nos permite simular el funcionamiento de una calculadora básica que permite realizar la suma o la resta de dos números binarios de 8 bits, dependiendo de la posición en la que se encuentre el interruptor selector de operaciones. 
+
 
 # Data Sheet de los elementos Utilizados  
 
